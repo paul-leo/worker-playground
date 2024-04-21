@@ -1,0 +1,12 @@
+<script>
+    // 注册service worker
+    if ('serviceWorker' in navigator) {
+        return navigator.serviceWorker.register('./sw.js').then(function (registration) {
+            alert('service worker 注册成功');
+        }).catch(function (err) {
+          alert('service worker 注册失败');
+        })
+    } else {
+        alert('unSupport serviceWorker');
+    }
+</script>
