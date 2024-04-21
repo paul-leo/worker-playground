@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <body>
+    <img src="/dog.jpg" alt="dog" />
+    <h1>Home</h1>
+    <a href="/index.html">Home</a>
+    <a href="/index2.html">Detail</a>
+    <a href="/subapp-a/index.html">SubApp A</a>
+    <a href="/subapp-b/index.html">SubApp B</a>
+  </body>
+</html>
+
+<script>
+  if(navigator.serviceWorker) {
+    navigator.serviceWorker
+    .register("/sw.js")
+    .then((reg) => console.log("Root SW registered!", reg))
+    .catch((err) => console.log("Root SW register error", err));
+  }
+  else {
+    alert("No SW support");
+  }
+  
+</script>
