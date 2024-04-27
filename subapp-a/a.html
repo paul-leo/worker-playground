@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>A</title>
+        <script src="/main.js"></script>
+    </head>
+    <body>
+        <h1>A</h1>
+        <a href="/index.html">Home</a>
+        <a href="/detail.html">Detail</a>
+        <a href="/subapp-a/a.html">SubApp A</a>
+        <a href="/subapp-b/index.html">SubApp B</a>
+        <p></p>
+        <!-- <button onclick="registerSW('/sw.js')">注册serviceWorker</button>
+        <button onclick="registerSW('/sw2.js')">注册serviceWorker2</button>
+        <button onclick="registerSW('/subapp-a/sw-a.js')">注册subapp-a SW</button> -->
+        <button onclick="getAllRegister()">获取当前注册的sw</button>
+        <button onclick="getController()">获取控制当前页面的sw</button>
+        <button onclick="ungisterAll()">注销所有的SW</button>
+        <img width="100" src="/images/dog.jpg" alt="dog" />
+    </body>
+</html>
