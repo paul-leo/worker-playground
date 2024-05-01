@@ -62,3 +62,19 @@ function ungisterAll() {
         });
     }
 }
+
+async function sendMessageToSW() {
+    const sws = await getAllActiveSW();
+    sws.forEach((sw) => {
+        sw.postMessage('Hello from main.js');
+    });
+}
+
+async function getAllActiveSW() {
+    if (navigator.serviceWorker) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        console.log('All active SW:', regs);
+        return regs.map((reg) => reg.active);
+    }
+    return [];
+}

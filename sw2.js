@@ -20,7 +20,12 @@ self.addEventListener('fetch', (event) => {
     // serve the cat SVG from the cache if the request is
     // same-origin and the path is '/dog.svg'
     console.log(name, ':', version, url.pathname);
-    if (url.origin == location.origin && url.pathname == '/images/dog.jpg') {
-        event.respondWith(caches.match('/images/cat.jpg'));
-    }
+    // if (url.origin == location.origin && url.pathname == '/images/dog.jpg') {
+    //     event.respondWith(caches.match('/images/cat.jpg'));
+    // }
+    
+});
+
+self.addEventListener('message', (event) => {
+   console.log('sw2 receive message:', event.data);
 });

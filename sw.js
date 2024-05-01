@@ -41,11 +41,11 @@ self.addEventListener('fetch', (event) => {
             // if (cachedResponse) return cachedResponse;
 
             // Else, use the preloaded response, if it's there
-            const response = await event.preloadResponse;
-            console.log(name, ':', version, url.pathname);
-            response && console.log('request:', url, response);
-            // 和预加载
-            if (response) return response;
+            // const response = await event.preloadResponse;
+            // console.log(name, ':', version, url.pathname);
+            // response && console.log('request:', url, response);
+            // // 和预加载
+            // if (response) return response;
             // Else try the network.
             return fetch(event.request);
         })()
