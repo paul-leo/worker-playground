@@ -26,6 +26,9 @@ self.addEventListener('activate', (event) => {
             }
         })()
     );
+    self.registration.showNotification('ServiceWorker Cookbook', {
+        body: "xxx",
+    });
     // clients.claim();
 });
 
@@ -33,7 +36,7 @@ self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
     // serve the cat SVG from the cache if the request is
     // same-origin and the path is '/dog.svg'
-    
+
     event.respondWith(
         (async function () {
             // Respond from the cache if we can
@@ -50,4 +53,9 @@ self.addEventListener('fetch', (event) => {
             return fetch(event.request);
         })()
     );
+});
+
+self.addEventListener('push', function (e) {
+    /* ... */
+    console.log('我接收到push 消息了');
 });

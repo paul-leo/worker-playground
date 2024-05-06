@@ -7,7 +7,10 @@ function registerSW(path, scope) {
     if (navigator.serviceWorker) {
         navigator.serviceWorker
             .register(path, { scope })
-            .then((reg) => console.log('SW registered!:' + path, reg))
+            .then((reg) => {
+                console.log('SW registered!:' + path, reg);
+                
+            })
             .catch((err) => console.log('SW register error:' + path, err));
     } else {
         alert('No SW support');
@@ -77,4 +80,25 @@ async function getAllActiveSW() {
         return regs.map((reg) => reg.active);
     }
     return [];
+}
+
+async function getMsg() {
+    // Notification.requestPermission().then(function (result) {
+    //     if (result === 'granted') {
+    //         randomNotification();
+    //     }
+    // });
+}
+
+const notifTitle = ['通知标题1', '通知标题2'];
+const notifBody = ['通知内容1', '通知内容2'];
+
+function randomNotification() {
+    var randomItem = Math.floor(Math.random() * notifTitle.length);
+    var notif = new Notification(notifTitle[randomItem], {
+        body: notifBody[randomItem],
+        // icon: notifImg[randomItem],
+    });
+
+    // setTimeout(randomNotification, Math.floor(Math.random() * 5 * 60 * 1000));
 }

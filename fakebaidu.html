@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fake Baidu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    iframe {
+      border: none;
+      height: 90vh;
+      width: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    navigator.serviceWorker.register('/fakeBaidu.js').then(function(registration) {
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  </script>
+  <script>
+    function sendApi() {
+      fetch('/api').then((res)=>{
+        console.log(res.body)
+      })
+    }
+  </script>
+  <button onclick="sendApi()">请求</button>
+  <button onclick="getMsg()">显示通知</button>
+</body>
+</html>
